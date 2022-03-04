@@ -1,0 +1,153 @@
+﻿let urlCentral = "https://localhost:44331/api/Modelos";
+let row;
+var Obtener = () => {
+    fetch(urlCentral)
+        .then(response => response.json())
+        .then(function (data) {
+            document.getElementById("tblModelo").innerHTML = "";
+            data.map(function (item) {
+                var tabla = document.getElementById("tblModelo");
+                var tr = document.createElement("tr");
+                var colId = document.createElement("th");
+                var colMarca = document.createElement("th");
+                var colModelo = document.createElement("th");
+                var actualizar = document.createElement("th");
+                var eliminar = document.createElement("th");
+                colId.innerHTML = item.id;
+                colMarca.innerHTML = item.marca;
+                colModelo.innerHTML = item.nombre;
+                actualizar.innerHTML += '<input type="button" value ="' + "Actualizar" + ' "class="btn btn-success editar edit-modal btn btn-warning botonEditar" data-target= "#imodal" data-toggle="modal" onclick="CargaCombos()">';
+                eliminar.innerHTML += '<input type="button" value ="' + "Borrar" + ' "class="btn btn-danger editar edit-modal botonEliminar"  data-target= "#eliminar" data-toggle="modal" onclick="CargaCombos()">';
+                tabla.appendChild(tr);
+                tr.appendChild(colId).style.display = 'none';
+                tr.appendChild(colMarca);
+                tr.appendChild(colModelo);
+                tr.appendChild(actualizar);
+                tr.appendChild(eliminar);
+            });
+        })
+        .catch(err => console.log(err));
+}
+const Agregar = async () => {
+
+    let marcaAgrega = document.getElementById("cmbMarcaA").value;
+    let modeloAgrega = document.getElementById("txtModeloA").value;
+    let _data = {
+        marca: `${marcaAgrega}`,
+        nombre: `${modeloAgrega}`,
+    };
+
+    let response = await fetch(urlCentral, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(_data)
+    }).then(() => {
+        window.location.reload();
+    });
+
+    let result = await response.json();
+    alert(result.message);
+}
+const Modificar = async () => {
+
+    let id1 = row;
+    let marcaModifica = document.getElementById("cmbMarca").value;
+    let modeloModifica = document.getElementById("txtModelo").value;
+    let _data = {
+        id: `${id1}`,
+        marca: `${marcaModifica}`,
+        nombre: `${modeloModifica}`,
+    };
+    let response = await fetch(urlCentral, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(_data)
+    }).then(() => {
+        window.location.reload();
+    });
+
+    let result = await response.json();
+    alert(result.message);
+}
+const Eliminar = async () => {
+
+    var url1 = new URL(urlCentral),
+        params = { id: row1 }
+    Object.keys(params).forEach(key => url1.searchParams.append(key, params[key]))
+    fetch(url1);
+
+    let response = await fetch(url1, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+    }).then(() => {
+        window.location.reload();
+    });
+
+    let result = await response.json();
+    alert(result.message);
+}
+
+var CargaCombos = () => {
+
+    $(document).on('click', '.botonEditar', function (e) {
+        row = $(this).parent().parent().children().first().text();
+        console.log(row);
+    });
+    $(document).on('click', '.botonEliminar', function (e) {
+        row1 = $(this).parent().parent().children().first().text();
+        console.log(row);
+    });
+
+    fetch("https://localhost:44331/api/Marcas")
+        .then(response => response.json())
+        .then(function (data) {
+            document.getElementById("cmbMarca").innerHTML = "";
+            var cmbModelo = document.getElementById("cmbMarca");
+            var texto = document.createElement("option");
+            texto.disabled;
+            texto.text = "Selecciona una marca";
+            cmbModelo.appendChild(texto).disabled = true;
+            data.map(function (item) {
+                
+                var option = document.createElement("option");
+                
+                option.value = item.id;
+                option.text = item.nombre;
+                
+                cmbModelo.appendChild(option);
+            });
+        })
+        .catch(err => console.log(err));
+    CargaTexto();
+};
+
+var CargaCombosAgrega = () => {
+    fetch("https://localhost:44331/api/Marcas")
+        .then(response => response.json())
+        .then(function (data) {
+            document.getElementById("cmbMarcaA").innerHTML = "";
+            var cmbModelo = document.getElementById("cmbMarcaA");
+
+            data.map(function (item) {
+                var option = document.createElement("option");
+                option.value = item.id;
+                option.text = item.nombre;
+                cmbModelo.appendChild(option);
+            });
+        })
+        .catch(err => console.log(err));
+};
+var CargaTexto = () => {
+    $(document).on('click', '.botonEditar', function (e) {
+        marcaM = $(this).parents('tr').children().eq(1).text();
+        modeloM = $(this).parents('tr').children().eq(2).text();
+        console.log(marcaM);
+        document.getElementById("txtModelo").value = `${modeloM}`;
+    });
+}
