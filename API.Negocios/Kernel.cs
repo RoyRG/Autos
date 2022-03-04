@@ -7,6 +7,7 @@ using System;
 
 namespace API.Negocios
 {
+    //Creación del kernel para registrar los negocios
     public static class Kernel
     {
         public static IServiceCollection RegistrarNegocios(this IServiceCollection services, IConfiguration configuration)

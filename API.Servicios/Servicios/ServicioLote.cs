@@ -10,17 +10,18 @@ namespace API.Servicios.Servicios
 {
     public class ServicioLote : IServicioLote
     {
+        //Inyección de la interfaz de negocio
         private readonly INegocioLote _negocioLote;
         public ServicioLote(INegocioLote negocioLote)
         {
             _negocioLote = negocioLote;
         }
-
+        //Servicio Delete
         public void Delete(Guid Id)
         {
             _negocioLote.Delete(Id);
         }
-
+        //Servicio Get
         public List<LoteModelo> Get()
         {
             var respuesta = new List<LoteModelo>();
@@ -48,7 +49,7 @@ namespace API.Servicios.Servicios
             };
             return lot;
         }
-
+        //Servicio Post
         public void Post(LoteModelo entidad)
         {
             var lot = new Lote
@@ -63,7 +64,7 @@ namespace API.Servicios.Servicios
             };
             _negocioLote.Post(lot);
         }
-
+        //Servicio Put
         public void Put(LoteModelo entidad)
         {
             var lot = new Lote

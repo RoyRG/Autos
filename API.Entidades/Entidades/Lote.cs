@@ -4,6 +4,7 @@ using System.Text;
 
 namespace API.Entidades.Entidades
 {
+    //Entidades de la tabla
     public class Lote
     {
         public Guid Id_Lote { get; set; }

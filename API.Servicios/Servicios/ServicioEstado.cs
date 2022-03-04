@@ -10,17 +10,18 @@ namespace API.Servicios.Servicios
 {
     public class ServicioEstado : IServicioEstado
     {
+        //Inyección de la interfaz de negocio
         private readonly INegocioEstado _negocioEstado;
         public ServicioEstado(INegocioEstado negocioEstado)
         {
             _negocioEstado = negocioEstado;
         }
-
+        //Servicio Delete
         public void Delete(Guid Id)
         {
             _negocioEstado.Delete(Id);
         }
-
+        //Servicio Get
         public List<EstadoModelo> Get()
         {
             var respuesta = new List<EstadoModelo>();
@@ -48,7 +49,7 @@ namespace API.Servicios.Servicios
             };
             return estado;
         }
-
+        //Servicio Post
         public void Post(EstadoModelo entidad)
         {
             var estado = new Estado
@@ -63,7 +64,7 @@ namespace API.Servicios.Servicios
             };
             _negocioEstado.Post(estado);
         }
-
+        //Servicio Put
         public void Put(EstadoModelo entidad)
         {
             var estado = new Estado

@@ -10,19 +10,20 @@ namespace API.Negocios.Negocios
 {
     public class NegocioMarca : INegocioMarca
     {
+        //Inyección de la interfaz de contexto
         private readonly Contexto _db;
         public NegocioMarca(Contexto db)
         {
             _db = db;
         }
-
+        //Negocio Delete
         public void Delete(Guid Id)
         {
             var rMarca = _db.Marcas.Where(c => c.Id_Marca == Id && c.Activo == true).FirstOrDefault();
             rMarca.Activo = false;
             _db.SaveChanges();
         }
-
+        //Negocio Get
         public List<Marcas> Get()
         {
             var rMarca = _db.Marcas.Where(c => c.Activo == true).ToList();
@@ -34,7 +35,7 @@ namespace API.Negocios.Negocios
             var rMarca = _db.Marcas.Where(c => c.Activo == true && c.Id_Marca == Id).ToList().FirstOrDefault();
             return rMarca;
         }
-
+        //Negocio Post
         public void Post(Marcas entidad)
         {
             var marca = new Marcas()
@@ -50,7 +51,7 @@ namespace API.Negocios.Negocios
             _db.Marcas.Add(marca);
             _db.SaveChanges();
         }
-
+        //Negocio Put
         public void Put(Marcas entidad)
         {
             var rMarca = _db.Marcas.Where(c => c.Id_Marca == entidad.Id_Marca && c.Activo == true).ToList().FirstOrDefault();

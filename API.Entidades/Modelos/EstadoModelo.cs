@@ -4,6 +4,7 @@ using System.Text;
 
 namespace API.Entidades.Modelos
 {
+    //DTO de la tabla
     public class EstadoModelo
     {
         public Guid Id { get; set; }

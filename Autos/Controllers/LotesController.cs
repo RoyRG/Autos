@@ -11,11 +11,13 @@ namespace Autos.Controllers
     [ApiController]
     public class LotesController : ControllerBase
     {
+        //Inyección de la interfaz
         private readonly IServicioLote _servicioLote;
         public LotesController(IServicioLote servicioLote)
         {
             _servicioLote = servicioLote;
         }
+        //Método Get
         [HttpGet]
         public List<LoteModelo> Get()
         {
@@ -29,6 +31,7 @@ namespace Autos.Controllers
                 return rLote;
             }
         }
+        //Método Post
         [HttpPost]
         public string Post([FromBody] LoteModelo loteModelo)
         {
@@ -42,6 +45,7 @@ namespace Autos.Controllers
                 return "Ok";
             }
         }
+        //Método Put
         [HttpPut]
         public string Put([FromBody] LoteModelo loteModelo)
         {
@@ -55,6 +59,7 @@ namespace Autos.Controllers
                 return "Ok";
             }
         }
+        //Método Delete
         [HttpDelete]
         public string Delete([FromQuery] Guid Id)
         {

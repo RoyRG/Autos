@@ -4,6 +4,7 @@ using System.Text;
 
 namespace API.Entidades.Entidades
 {
+    //Entidades de la tabla
     public class Estado
     {
         public Guid Id_Estado { get; set; }

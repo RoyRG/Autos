@@ -11,12 +11,14 @@ namespace Autos.Controllers
     [ApiController]
     public class AutosController : ControllerBase
     {
+        //Inyección de la interfaz
         private readonly IServicioCarro _servicioCarro;
         public AutosController(IServicioCarro servicioCarro)
         {
             _servicioCarro = servicioCarro;
         }
         [HttpGet]
+        //Método Get
         public List<AutoModelo> Get()
         {
             var rCarro = _servicioCarro.Get();
@@ -29,6 +31,7 @@ namespace Autos.Controllers
                 return rCarro;
             }
         }
+        //Método Post
         [HttpPost]
         public string Post([FromBody] AutoModelo autoModelo)
         {
@@ -42,6 +45,7 @@ namespace Autos.Controllers
                 return "Ok";
             }
         }
+        //Método Put
         [HttpPut]
         public string Put([FromBody] AutoModelo autoModelo)
         {
@@ -55,6 +59,8 @@ namespace Autos.Controllers
                 return "Ok";
             }
         }
+        //Método Delete
+        [HttpDelete]
         public string Delete([FromQuery] Guid Id)
         {
             _servicioCarro.Delete(Id);

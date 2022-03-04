@@ -10,17 +10,18 @@ namespace API.Servicios.Servicios
 {
     public class ServicioMarca : IServicioMarca
     {
+        //Inyección de la interfaz de negocio
         private readonly INegocioMarca _negocioMarca;
         public ServicioMarca(INegocioMarca negocioMarca)
         {
             _negocioMarca = negocioMarca;
         }
-
+        //Servicio Delete
         public void Delete(Guid Id)
         {
             _negocioMarca.Delete(Id);
         }
-
+        //Servicio Get
         public List<MarcaModelo> Get()
         {
             var respuesta = new List<MarcaModelo>();
@@ -48,7 +49,7 @@ namespace API.Servicios.Servicios
             };
             return marca;
         }
-
+        //Servicio Post
         public void Post(MarcaModelo entidad)
         {
             var marca = new Marcas
@@ -63,7 +64,7 @@ namespace API.Servicios.Servicios
             };
             _negocioMarca.Post(marca);
         }
-
+        //Servicio Put
         public void Put(MarcaModelo entidad)
         {
             var marca = new Marcas

@@ -10,19 +10,20 @@ namespace API.Negocios.Negocios
 {
     public class NegocioEstado : INegocioEstado
     {
+        //Inyección de la interfaz de contexto
         private readonly Contexto _db;
         public NegocioEstado(Contexto db)
         {
             _db = db;
         }
-
+        //Negocio Delete
         public void Delete(Guid Id)
         {
             var rEstado = _db.Estado.Where(c => c.Activo == true && c.Id_Estado == Id).FirstOrDefault();
             rEstado.Activo = false;
             _db.SaveChanges();
         }
-
+        //Negocio Get
         public List<Estado> Get()
         {
             var rEstado = _db.Estado.Where(c => c.Activo == true).ToList();
@@ -34,7 +35,7 @@ namespace API.Negocios.Negocios
             var rEstado = _db.Estado.Where(c => c.Activo == true && c.Id_Estado == Id).ToList().FirstOrDefault();
             return rEstado;
         }
-
+        //Negocio Post
         public void Post(Estado entidad)
         {
             var estado = new Estado
@@ -50,7 +51,7 @@ namespace API.Negocios.Negocios
             _db.Add(estado);
             _db.SaveChanges();
         }
-
+        //Negocio Put
         public void Put(Estado entidad)
         {
             var rEstado = _db.Estado.Where(c => c.Activo == true && c.Id_Estado == entidad.Id_Estado).ToList().FirstOrDefault();

@@ -8,6 +8,7 @@ using System.Text;
 
 namespace API.Negocios.Negocios
 {
+    //Inyección de la interfaz de contexto
     public class NegocioLote : INegocioLote
     {
         private readonly Contexto _db;
@@ -15,14 +16,14 @@ namespace API.Negocios.Negocios
         {
             _db = db;
         }
-
+        //Negocio Delete
         public void Delete(Guid Id)
         {
             var rLote = _db.Lote.Where(c => c.Id_Lote == Id && c.Activo == true).FirstOrDefault();
             rLote.Activo = false;
             _db.SaveChanges();
         }
-
+        //Negocio Get
         public List<Lote> Get()
         {
             var rLote = _db.Lote.Where(c => c.Activo == true).ToList();
@@ -34,7 +35,7 @@ namespace API.Negocios.Negocios
             var rLote = _db.Lote.Where(c => c.Activo == true && c.Id_Lote == Id).ToList().FirstOrDefault();
             return rLote;
         }
-
+        //Negocio Post
         public void Post(Lote entidad)
         {
             var lote = new Lote()
@@ -50,7 +51,7 @@ namespace API.Negocios.Negocios
             _db.Add(lote);
             _db.SaveChanges();
         }
-
+        //Negocio Put
         public void Put(Lote entidad)
         {
             var rLote = _db.Lote.Where(c => c.Id_Lote == entidad.Id_Lote && c.Activo == true).ToList().FirstOrDefault();

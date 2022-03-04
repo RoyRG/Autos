@@ -11,19 +11,20 @@ namespace API.Negocios.Negocios
 {
     public class NegocioCarro : INegocioCarro
     {
+        //Inyección de la interfaz de contexto
         private readonly Contexto _db;
         public NegocioCarro(Contexto db)
         {
             _db = db;
         }
-
+        //Negocio Delete
         public void Delete(Guid Id)
         {
             var rCarro = _db.Autos.Where(c => c.Id_Auto == Id && c.Activo == true).FirstOrDefault();
             rCarro.Activo = false;
             _db.SaveChanges();
         }
-
+        //Negocio Get con inclusión de modelos
         public List<Autos> Get()
         {
             var rCarro = _db.Autos.Include(i => i.Lote).Include(i => i.Modelo).Include(i => i.Estado)/*.Where(c => c.Activo == true && c.Lote.Activo == true && c.Modelo.Activo == true && c.Estado.Activo == true)*/.Where(c => c.Activo == true)
@@ -39,7 +40,7 @@ namespace API.Negocios.Negocios
                .ToList().FirstOrDefault();
             return rCarro;
         }
-
+        //Negocio Post
         public void Post(Autos entidad)
         {
             var carro = new Autos()
@@ -59,7 +60,7 @@ namespace API.Negocios.Negocios
             _db.Add(carro);
             _db.SaveChanges();
         }
-
+        //Negocio Put
         public void Put(Autos entidad)
         {
             var rCarro = _db.Autos.Where(c => c.Id_Auto == entidad.Id_Auto && c.Activo == true).ToList().FirstOrDefault();

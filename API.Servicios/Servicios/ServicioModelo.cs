@@ -10,12 +10,13 @@ namespace API.Servicios.Servicios
 {
     public class ServicioModelo : IServicioModelo
     {
+        //Inyección de la interfaz de negocio
         private readonly INegocioModelo _negocioModelo;
         public ServicioModelo(INegocioModelo negocioModelo)
         {
             _negocioModelo = negocioModelo;
         }
-
+        //Servicio Delete
         public void Delete(Guid Id)
         {
             _negocioModelo.Delete(Id);
@@ -49,7 +50,7 @@ namespace API.Servicios.Servicios
             };
             return modelo;
         }
-
+        //Servicio Post
         public void Post(ModeloModelo entidad)
         {
             var modelo = new Modelo()
@@ -65,7 +66,7 @@ namespace API.Servicios.Servicios
             };
             _negocioModelo.Post(modelo);
         }
-
+        //Servicio Put
         public void Put(ModeloModelo entidad)
         {
             var modelo = new Modelo()

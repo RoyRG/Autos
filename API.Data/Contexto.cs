@@ -6,6 +6,7 @@ using System.Text;
 
 namespace API.Data
 {
+    //DbSet de las tablas de la base de datos
     public class Contexto : DbContext
     {
         public DbSet<Autos> Autos { get; set; }
@@ -13,9 +14,11 @@ namespace API.Data
         public DbSet<Lote> Lote { get; set; }
         public DbSet<Marcas> Marcas { get; set; }
         public DbSet<Modelo> Modelos { get; set; }
+        //Contructor del DbContext
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
         }
+        //Constructor del fluent Api
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Autos>().HasKey(k => k.Id_Auto);

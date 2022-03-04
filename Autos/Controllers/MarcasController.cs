@@ -11,11 +11,13 @@ namespace Autos.Controllers
     [ApiController]
     public class MarcasController : ControllerBase
     {
+        //Inyección de la interfaz
         private readonly IServicioMarca _servicioMarca;
         public MarcasController(IServicioMarca servicioMarca)
         {
             _servicioMarca = servicioMarca;
         }
+        //Método Get
         [HttpGet]
         public List<MarcaModelo> Get()
         {
@@ -32,6 +34,7 @@ namespace Autos.Controllers
                 return respuesta;
             }
         }
+        //Método Post
         [HttpPost]
         public string Post([FromBody] MarcaModelo marcaModelo)
         {
@@ -45,6 +48,7 @@ namespace Autos.Controllers
                 return "Ok";
             }
         }
+        //Método Put
         [HttpPut]
         public string Put([FromBody] MarcaModelo marcaModelo)
         {
@@ -58,6 +62,7 @@ namespace Autos.Controllers
                 return "Ok";
             }
         }
+        //Método Delete
         [HttpDelete]
         public string Delete([FromQuery] Guid Id)
         {

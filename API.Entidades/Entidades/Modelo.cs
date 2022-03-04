@@ -4,6 +4,7 @@ using System.Text;
 
 namespace API.Entidades.Entidades
 {
+    //Entidades de la tabla con clases para la muestra de datos
     public class Modelo
     {
         public Guid Id_Modelo { get; set; }

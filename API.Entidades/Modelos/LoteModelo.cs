@@ -4,6 +4,8 @@ using System.Text;
 
 namespace API.Entidades.Modelos
 {
+    //DTO de la tabla
+
     public class LoteModelo
     {
         public Guid Id { get; set; }

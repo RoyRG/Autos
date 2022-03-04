@@ -15,13 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Comun", "API.Comun\API.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Entidades", "API.Entidades\API.Entidades.csproj", "{8A11E259-0373-4F15-893E-1680E24CE491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAutos", "WebAutos\WebAutos.csproj", "{68E7C95F-CAA1-45EE-A55E-38E59E073F2E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{056E52DB-507E-40D4-B79F-A1976AA61370}"
-	ProjectSection(SolutionItems) = preProject
-		..\Auto.sql = ..\Auto.sql
-		..\bd.bacpac = ..\bd.bacpac
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAutos", "WebAutos\WebAutos.csproj", "{68E7C95F-CAA1-45EE-A55E-38E59E073F2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

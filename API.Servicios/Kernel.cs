@@ -9,6 +9,7 @@ using System.Text;
 
 namespace API.Servicios
 {
+    //Creación del kernel para registrar los servicios
     public static class Kernel
     {
         public static IServiceCollection RegistrarServicios(this IServiceCollection services, IConfiguration configuration)

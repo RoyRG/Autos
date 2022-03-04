@@ -4,6 +4,7 @@ using System.Text;
 
 namespace API.Servicios.Interfaces
 {
+     //Interfaz base 
     public interface IServicioBase <T>
     {
         List<T> Get();
