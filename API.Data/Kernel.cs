@@ -9,7 +9,7 @@ namespace API.Data
     public static class Kernel
     {
        
-        const string cadenaConexion = @"Data Source=DESKTOP-EIGQN0C; Initial Catalog=Autos; User ID=sa; Password=royale681018";
+        //const string cadenaConexion = @"Data Source=DESKTOP-EIGQN0C; Initial Catalog=Autos; User ID=sa; Password=royale681018";
         public static IServiceCollection RegistrarRepositorios<TContexto>(this IServiceCollection services) where TContexto : DbContext
         {
             services.AddDbContext<Contexto>(
