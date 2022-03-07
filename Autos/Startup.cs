@@ -29,6 +29,7 @@ namespace Autos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Inyeccion de la cadena de conexion
             services.AddDbContext<Contexto>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.RegistrarServicios(Configuration);

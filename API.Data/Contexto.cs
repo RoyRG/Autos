@@ -10,6 +10,7 @@ namespace API.Data
     //DbSet de las tablas de la base de datos
     public class Contexto : DbContext
     {
+        //Llamado a la interfaz de configuracion
         private IConfiguration _configuration;
         public DbSet<Autos> Autos { get; set; }
         public DbSet<Estado> Estado { get; set; }
@@ -24,6 +25,7 @@ namespace API.Data
         {
             _configuration = configuration;
         }
+        //Inyeccion de la cadena de conexion por medio del appsttingjason
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder();
