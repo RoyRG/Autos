@@ -68,3 +68,12 @@ C:\Users\QUALITY\Desktop\Autos\Autos\obj\Debug\netcoreapp3.1\Autos.csproj.CopyCo
 C:\Users\QUALITY\Desktop\Autos\Autos\obj\Debug\netcoreapp3.1\Autos.dll
 C:\Users\QUALITY\Desktop\Autos\Autos\obj\Debug\netcoreapp3.1\Autos.pdb
 C:\Users\QUALITY\Desktop\Autos\Autos\obj\Debug\netcoreapp3.1\Autos.genruntimeconfig.cache
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\QUALITY\Desktop\Autos\Autos\bin\Debug\netcoreapp3.1\System.Text.Json.dll

@@ -1,10 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "ncZAy1CNs3bvikN7zj+wYpc3Ic17p2wAXvnjnM+5bPORMVBzlSLkkXCCj9uRk/SgLMcQ2EBRxUHZ4mgb5pB0cA==",
+  "dgSpecHash": "bUXu5Kn+lKAL7nbquiioAocLqFAAHL7yo1ZN2zPn1JE5r5IoI+tc7+0iR26rpd/MybNLoQa7oIV9z2Xi33fe1w==",
   "success": true,
   "projectFilePath": "C:\\Users\\QUALITY\\Desktop\\Autos\\WebAutos\\WebAutos.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\QUALITY\\.nuget\\packages\\bootstrap.datepicker\\1.8.0.1\\bootstrap.datepicker.1.8.0.1.nupkg.sha512"
+    "C:\\Users\\QUALITY\\.nuget\\packages\\bootstrap.datepicker\\1.8.0.1\\bootstrap.datepicker.1.8.0.1.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\6.0.0\\microsoft.extensions.configuration.fileextensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.configuration.json\\6.0.0\\microsoft.extensions.configuration.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\6.0.0\\microsoft.extensions.fileproviders.physical.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\6.0.0\\microsoft.extensions.filesystemglobbing.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\QUALITY\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

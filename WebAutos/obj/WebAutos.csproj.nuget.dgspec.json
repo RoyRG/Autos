@@ -47,6 +47,10 @@
             "Bootstrap.Datepicker": {
               "target": "Package",
               "version": "[1.8.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [

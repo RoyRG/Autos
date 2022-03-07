@@ -1,5 +1,6 @@
 ﻿using API.Entidades.Entidades;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,18 +10,35 @@ namespace API.Data
     //DbSet de las tablas de la base de datos
     public class Contexto : DbContext
     {
+        private IConfiguration _configuration;
         public DbSet<Autos> Autos { get; set; }
         public DbSet<Estado> Estado { get; set; }
         public DbSet<Lote> Lote { get; set; }
         public DbSet<Marcas> Marcas { get; set; }
         public DbSet<Modelo> Modelos { get; set; }
         //Contructor del DbContext
-        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        protected Contexto()
         {
         }
-        //Constructor del fluent Api
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public Contexto(DbContextOptions<Contexto> options, IConfiguration configuration) : base(options)
         {
+            _configuration = configuration;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var builder = new ConfigurationBuilder();
+            builder.AddJsonFile("appsettings.json", optional: false);
+            _configuration = builder.Build();
+            string connectionString = _configuration.GetConnectionString("DefaultConnection").ToString();
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+    
+
+
+    //Constructor del fluent Api
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
             modelBuilder.Entity<Autos>().HasKey(k => k.Id_Auto);
             modelBuilder.Entity<Estado>().HasKey(k => k.Id_Estado);
             modelBuilder.Entity<Lote>().HasKey(k => k.Id_Lote);
