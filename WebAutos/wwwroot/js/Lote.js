@@ -1,5 +1,6 @@
 ﻿let urlCentral = "https://localhost:44331/api/Lotes";
 let row;
+//Función obtener respuesta del api
 var Obtener = () => {
     fetch(urlCentral)
         .then(response => response.json())
@@ -14,6 +15,7 @@ var Obtener = () => {
                 var eliminar = document.createElement("th");
                 colId.innerHTML = item.id;
                 colLote.innerHTML = item.nombre;
+                //Creación de los botones dinámicos
                 actualizar.innerHTML += '<input type="button" value ="' + "Actualizar" + ' "class="btn btn-success editar edit-modal btn btn-warning botonEditar" data-target= "#imodal" data-toggle="modal" onclick="CargaId()">';
                 eliminar.innerHTML += '<input type="button" value ="' + "Borrar" + ' "class="btn btn-danger editar edit-modal botonEliminar"  data-target= "#eliminar" data-toggle="modal" onclick="CargaId()">';
                 tabla.appendChild(tr);
@@ -25,6 +27,7 @@ var Obtener = () => {
         })
         .catch(err => console.log(err));
 }
+//Función agregar del api
 const Agregar = async () => {
 
     let loteAgrega = document.getElementById("txtLoteA").value;
@@ -46,6 +49,7 @@ const Agregar = async () => {
     alert(result.message);
     location.reload();
 }
+//Función modificar del api
 const Modificar = async () => {
 
     let id1 = row;
@@ -69,6 +73,7 @@ const Modificar = async () => {
     let result = await response.json();
     alert(result.message);  
 }
+//Función eliminar del api
 const Eliminar = async () => {
 
     var url1 = new URL(urlCentral),
@@ -89,7 +94,7 @@ const Eliminar = async () => {
     alert(result.message);
     location.reload();
 }
-
+//Obtención del id para la respuesta json
 var CargaId = () => {
 
     $(document).on('click', '.botonEditar', function (e) {
@@ -103,6 +108,7 @@ var CargaId = () => {
     });
     CargaTexto();
 }
+//Función para cargar el texto del campo a modificar en los imput de texto
 var CargaTexto = () => {
     $(document).on('click', '.botonEditar', function (e) {
         nom = $(this).parents('tr').children().eq(1).text();

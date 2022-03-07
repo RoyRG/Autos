@@ -18,6 +18,7 @@ var Obtener = () => {
                 colmodelo.innerHTML = item.modelo;
                 colestado.innerHTML = item.estado;
                 collote.innerHTML = item.lote;
+                //Creación de los botones dinámicos
                 actualizar.innerHTML += '<input type="button" value ="' + "Actualizar" +' "class="btn btn-success editar edit-modal btn btn-warning botonEditar" data-target= "#imodal" data-toggle="modal" onclick="CargaCombos()">';
                 eliminar.innerHTML += '<input type="button" value ="' + "Borrar" +' "class="btn btn-danger editar edit-modal botonEliminar"  data-target= "#eliminar" data-toggle="modal" onclick="CargaCombos()">';
                 tabla.appendChild(tr);
@@ -59,6 +60,7 @@ const Agregar = async () => {
     let result = await response.json();
     alert(result.message);
 }
+//Función modificar del api
 const Modificar = async () => {
   
     let id1 = row;
@@ -87,6 +89,7 @@ const Modificar = async () => {
     alert(result.message);
 
 }
+//Función eliminar del api
 const Eliminar = async () => {
 
     var url1 = new URL(urlCentral),
@@ -107,9 +110,9 @@ const Eliminar = async () => {
     alert(result.message);
    
 }
-
+//Llenado de los select para los combos del modal para modificar
 var CargaCombos = () => {
-
+    //Obtención del id para la respuesta json
     $(document).on('click', '.botonEditar', function (e) {
         row = $(this).parents('tr').children().eq(0).text();
         console.log(row);
@@ -181,7 +184,7 @@ var CargaCombos = () => {
 
         .catch(err => console.log(err));
 };
-
+//Llenado de los select para los combos del modal para agregar
 var CargaCombosAgrega = () => {
     fetch("https://localhost:44331/api/Modelos")
         .then(response => response.json())

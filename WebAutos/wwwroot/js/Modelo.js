@@ -1,5 +1,6 @@
 ﻿let urlCentral = "https://localhost:44331/api/Modelos";
 let row;
+//Función obtener respuesta del api
 var Obtener = () => {
     fetch(urlCentral)
         .then(response => response.json())
@@ -16,6 +17,7 @@ var Obtener = () => {
                 colId.innerHTML = item.id;
                 colMarca.innerHTML = item.marca;
                 colModelo.innerHTML = item.nombre;
+                //Creación de los botones dinámicos
                 actualizar.innerHTML += '<input type="button" value ="' + "Actualizar" + ' "class="btn btn-success editar edit-modal btn btn-warning botonEditar" data-target= "#imodal" data-toggle="modal" onclick="CargaCombos()">';
                 eliminar.innerHTML += '<input type="button" value ="' + "Borrar" + ' "class="btn btn-danger editar edit-modal botonEliminar"  data-target= "#eliminar" data-toggle="modal" onclick="CargaCombos()">';
                 tabla.appendChild(tr);
@@ -28,6 +30,7 @@ var Obtener = () => {
         })
         .catch(err => console.log(err));
 }
+//Función agregar del api
 const Agregar = async () => {
 
     let marcaAgrega = document.getElementById("cmbMarcaA").value;
@@ -50,6 +53,7 @@ const Agregar = async () => {
     let result = await response.json();
     alert(result.message);
 }
+//Función modificar del api
 const Modificar = async () => {
 
     let id1 = row;
@@ -73,6 +77,7 @@ const Modificar = async () => {
     let result = await response.json();
     alert(result.message);
 }
+//Función eliminar del api
 const Eliminar = async () => {
 
     var url1 = new URL(urlCentral),
@@ -92,9 +97,9 @@ const Eliminar = async () => {
     let result = await response.json();
     alert(result.message);
 }
-
+//Llenado de los select para los combos del modal para modificar
 var CargaCombos = () => {
-
+    //Obtención del id para la respuesta json
     $(document).on('click', '.botonEditar', function (e) {
         row = $(this).parent().parent().children().first().text();
         console.log(row);
@@ -126,7 +131,7 @@ var CargaCombos = () => {
         .catch(err => console.log(err));
     CargaTexto();
 };
-
+//Llenado de los select para los combos del modal para agregar
 var CargaCombosAgrega = () => {
     fetch("https://localhost:44331/api/Marcas")
         .then(response => response.json())
@@ -143,6 +148,7 @@ var CargaCombosAgrega = () => {
         })
         .catch(err => console.log(err));
 };
+//Función para cargar el texto del campo a modificar en los imput de texto
 var CargaTexto = () => {
     $(document).on('click', '.botonEditar', function (e) {
         marcaM = $(this).parents('tr').children().eq(1).text();
