@@ -31,6 +31,7 @@ namespace API.Servicios.Servicios
                 var modelo_ = new ModeloModelo()
                 {
                     Id = modelo.Id_Modelo,
+                    Id_Marca = modelo.Id_Marca,
                     Marca = modelo.Marca.Nombre,
                     Nombre = modelo.Nombre,
                 };
@@ -45,6 +46,7 @@ namespace API.Servicios.Servicios
             var modelo = new ModeloModelo()
             {
                 Id = rModelo.Id_Modelo,
+                Id_Marca = rModelo.Marca.Id_Marca,
                 Marca = rModelo.Marca.Nombre,
                 Nombre = rModelo.Nombre,
             };

@@ -25,7 +25,7 @@ namespace API.Data
         {
             _configuration = configuration;
         }
-        //Inyeccion de la cadena de conexion por medio del appsttingjason
+        //Inyeccion de la cadena de conexion por medio del appsttingjson
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder();

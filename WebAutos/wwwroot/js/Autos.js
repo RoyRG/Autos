@@ -9,12 +9,18 @@ var Obtener = () => {
                 var tabla = document.getElementById("tblAutos");
                 var tr = document.createElement("tr");
                 var colId = document.createElement("th");
+                var colIdModelo = document.createElement("th");
+                var colIdEstado = document.createElement("th");
+                var colIdLote = document.createElement("th");
                 var colmodelo = document.createElement("th");
                 var colestado = document.createElement("th");
                 var collote = document.createElement("th");
                 var actualizar = document.createElement("th");
                 var eliminar = document.createElement("th");
                 colId.innerHTML = item.id_Auto;
+                colIdModelo.innerHTML = item.id_Modelo;
+                colIdEstado.innerHTML = item.id_Estado;
+                colIdLote.innerHTML = item.id_Lote;
                 colmodelo.innerHTML = item.modelo;
                 colestado.innerHTML = item.estado;
                 collote.innerHTML = item.lote;
@@ -23,6 +29,9 @@ var Obtener = () => {
                 eliminar.innerHTML += '<input type="button" value ="' + "Borrar" +' "class="btn btn-danger editar edit-modal botonEliminar"  data-target= "#eliminar" data-toggle="modal" onclick="CargaCombos()">';
                 tabla.appendChild(tr);
                 tr.appendChild(colId).style.display = 'none';
+                tr.appendChild(colIdModelo).style.display = 'none';
+                tr.appendChild(colIdEstado).style.display = 'none';
+                tr.appendChild(colIdLote).style.display = 'none';
                 tr.appendChild(colmodelo);
                 tr.appendChild(colestado);
                 tr.appendChild(collote);
@@ -115,7 +124,13 @@ var CargaCombos = () => {
     //Obtención del id para la respuesta json
     $(document).on('click', '.botonEditar', function (e) {
         row = $(this).parents('tr').children().eq(0).text();
+         mod = $(this).parents('tr').children().eq(1).text();
+         est = $(this).parents('tr').children().eq(2).text();
+         lot = $(this).parents('tr').children().eq(3).text();
         console.log(row);
+        console.log(mod);
+        console.log(est);
+        console.log(lot);
     });
     $(document).on('click', '.botonEliminar', function (e) {
         row1 = $(this).parents('tr').children().eq(0).text();
@@ -127,55 +142,50 @@ var CargaCombos = () => {
         .then(function (data) {
             document.getElementById("cmbModelo").innerHTML = "";
             var cmbModelo = document.getElementById("cmbModelo");
-            var model = document.createElement("option");
-            
-            model.text = "Selecciona un modelo";
-            cmbModelo.appendChild(model).disabled = true;
             data.map(function (item) {
                 var option = document.createElement("option");
                 option.value = item.id;
                 option.text = item.nombre;
                 cmbModelo.appendChild(option);
+
+                $('#cmbModelo').val(`${mod}`);
+
+
             });
 
-
         })
-
-
         .catch(err => console.log(err));
     fetch("https://localhost:44331/api/Estado")
         .then(response => response.json())
         .then(function (data) {
             document.getElementById("cmbEstado").innerHTML = "";
             var cmbEstado = document.getElementById("cmbEstado");
-            var model = document.createElement("option");
-            model.text = "Selecciona un estado";
-            cmbEstado.appendChild(model).disabled = true;
+            
             data.map(function (item) {
                 var option = document.createElement("option");
                 option.value = item.id;
                 option.text = item.nombre;
                 cmbEstado.appendChild(option);
+
+                $('#cmbEstado').val(`${est}`);
             });
 
 
         })
-
-
         .catch(err => console.log(err));
     fetch("https://localhost:44331/api/Lotes")
         .then(response => response.json())
         .then(function (data) {
             document.getElementById("cmbLote").innerHTML = "";
             var cmbLote = document.getElementById("cmbLote");
-            var lot = document.createElement("option");
-            lot.text = "Selecciona un lote";
-            cmbLote.appendChild(lot).disabled = true;
+       
             data.map(function (item) {
                 var option = document.createElement("option");
                 option.value = item.id;
                 option.text = item.nombre;
                 cmbLote.appendChild(option);
+
+                $('#cmbLote').val(`${lot}`);
             });
 
 

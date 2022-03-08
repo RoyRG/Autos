@@ -10,11 +10,13 @@ var Obtener = () => {
                 var tabla = document.getElementById("tblModelo");
                 var tr = document.createElement("tr");
                 var colId = document.createElement("th");
+                var ColIdMarca = document.createElement("th");
                 var colMarca = document.createElement("th");
                 var colModelo = document.createElement("th");
                 var actualizar = document.createElement("th");
                 var eliminar = document.createElement("th");
                 colId.innerHTML = item.id;
+                ColIdMarca.innerHTML = item.id_Marca;
                 colMarca.innerHTML = item.marca;
                 colModelo.innerHTML = item.nombre;
                 //Creación de los botones dinámicos
@@ -22,6 +24,7 @@ var Obtener = () => {
                 eliminar.innerHTML += '<input type="button" value ="' + "Borrar" + ' "class="btn btn-danger editar edit-modal botonEliminar"  data-target= "#eliminar" data-toggle="modal" onclick="CargaCombos()">';
                 tabla.appendChild(tr);
                 tr.appendChild(colId).style.display = 'none';
+                tr.appendChild(ColIdMarca).style.display = 'none';
                 tr.appendChild(colMarca);
                 tr.appendChild(colModelo);
                 tr.appendChild(actualizar);
@@ -57,6 +60,7 @@ const Agregar = async () => {
 const Modificar = async () => {
 
     let id1 = row;
+    let marc = mod;
     let marcaModifica = document.getElementById("cmbMarca").value;
     let modeloModifica = document.getElementById("txtModelo").value;
     let _data = {
@@ -101,11 +105,13 @@ const Eliminar = async () => {
 var CargaCombos = () => {
     //Obtención del id para la respuesta json
     $(document).on('click', '.botonEditar', function (e) {
-        row = $(this).parent().parent().children().first().text();
+        row = $(this).parents('tr').children().eq(0).text();
+        mod = $(this).parents('tr').children().eq(1).text();
         console.log(row);
+        console.log(mod);
     });
     $(document).on('click', '.botonEliminar', function (e) {
-        row1 = $(this).parent().parent().children().first().text();
+        row1 = $(this).parents('tr').children().eq(0).text();
         console.log(row);
     });
 
@@ -114,10 +120,6 @@ var CargaCombos = () => {
         .then(function (data) {
             document.getElementById("cmbMarca").innerHTML = "";
             var cmbModelo = document.getElementById("cmbMarca");
-            var texto = document.createElement("option");
-            texto.disabled;
-            texto.text = "Selecciona una marca";
-            cmbModelo.appendChild(texto).disabled = true;
             data.map(function (item) {
                 
                 var option = document.createElement("option");
@@ -126,9 +128,13 @@ var CargaCombos = () => {
                 option.text = item.nombre;
                 
                 cmbModelo.appendChild(option);
+                $('select').val(`${mod}`);
+
             });
         })
         .catch(err => console.log(err));
+    const select = document.querySelector('select');
+    select.value = $(this).parents('tr').children().eq(1).text();
     CargaTexto();
 };
 //Llenado de los select para los combos del modal para agregar
@@ -151,9 +157,10 @@ var CargaCombosAgrega = () => {
 //Función para cargar el texto del campo a modificar en los imput de texto
 var CargaTexto = () => {
     $(document).on('click', '.botonEditar', function (e) {
-        marcaM = $(this).parents('tr').children().eq(1).text();
-        modeloM = $(this).parents('tr').children().eq(2).text();
-        console.log(marcaM);
+        marcaM = $(this).parents('tr').children().eq(2).text();
+        modeloM = $(this).parents('tr').children().eq(3).text();
+
         document.getElementById("txtModelo").value = `${modeloM}`;
+        /*document.getElementById("cmbMarca").value = `${marcaM}`;*/
     });
 }

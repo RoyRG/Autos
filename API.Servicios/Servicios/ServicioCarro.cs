@@ -31,6 +31,9 @@ namespace API.Servicios.Servicios
                 var carro = new AutoModelo()
                 {
                     Id_Auto = car.Id_Auto,
+                    Id_Estado = car.Id_Estado,
+                    Id_Lote = car.Id_Lote,
+                    Id_Modelo = car.Id_Modelo,
                     Estado = car.Estado.Nombre,
                     Lote = car.Lote.Nombre,
                     Año = car.Año,

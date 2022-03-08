@@ -28,7 +28,7 @@ namespace API.Negocios.Negocios
         public List<Autos> Get()
         {
             var rCarro = _db.Autos.Include(i => i.Lote).Include(i => i.Modelo).Include(i => i.Estado)/*.Where(c => c.Activo == true && c.Lote.Activo == true && c.Modelo.Activo == true && c.Estado.Activo == true)*/.Where(c => c.Activo == true)
-                .Select(s => new Autos { Id_Auto = s.Id_Auto, Lote = new Lote { Nombre = s.Lote.Nombre }, Modelo = new Modelo { Nombre = s.Modelo.Nombre }, Estado = new Estado { Nombre = s.Estado.Nombre } })
+                .Select(s => new Autos { Id_Auto = s.Id_Auto, Id_Estado = s.Id_Estado, Id_Modelo = s.Id_Modelo, Id_Lote = s.Id_Lote, Lote = new Lote { Nombre = s.Lote.Nombre }, Modelo = new Modelo { Nombre = s.Modelo.Nombre }, Estado = new Estado { Nombre = s.Estado.Nombre } })
                 .ToList();
             return rCarro;
         }
