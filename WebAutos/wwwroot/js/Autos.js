@@ -74,12 +74,9 @@ const Modificar = async () => {
   
     let id1 = row;
     let modeloModifica = document.getElementById("cmbModelo").value;
-   /* let añoModifica = document.getElementById("txtFecha").value;*/
     let estadoModifica = document.getElementById("cmbEstado").value;
     let loteModifica = document.getElementById("cmbLote").value;
-    let añoModifica = document.getElementById("start").value;
-/*    var añoModifica = $('#txt').datepicker({ dateFormat: 'yyyy-mm-dd' }).val();*/
-/*    console.log(prueba);*/
+    let añoModifica = document.getElementById("txtFecha").value;
     let _data = {
         Id_Auto: `${id1}`,
         Modelo: `${modeloModifica}`,
@@ -130,10 +127,6 @@ var CargaCombos = () => {
          mod = $(this).parents('tr').children().eq(1).text();
          est = $(this).parents('tr').children().eq(2).text();
          lot = $(this).parents('tr').children().eq(3).text();
-        //console.log(row);
-        //console.log(mod);
-        //console.log(est);
-        //console.log(lot);
     });
     $(document).on('click', '.botonEliminar', function (e) {
         row1 = $(this).parents('tr').children().eq(0).text();
