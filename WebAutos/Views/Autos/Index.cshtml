@@ -18,7 +18,7 @@
     </tbody>
 </table>
 <div>
-    <button type="button" class="editar edit-modal btn btn-success" data-target= "#agrega" data-toggle="modal" onclick="CargaCombosAgrega()">Agregar</button>
+    <button type="button" class="editar edit-modal btn btn-success form-control" data-target= "#agrega" data-toggle="modal" onclick="CargaCombosAgrega()">Agregar</button>
 </div>
 <div class="modal" id="imodal"  tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -42,10 +42,34 @@
                     <label>Lote</label>
                    <select class="form-control" id="cmbLote"></select>
                     </div>
-                    <div class="form-group">
+@*                    <div class="form-group">
                     <label>Fecha</label>
                         <input  type = "text" id="txtFecha" placeholder="yyyy-mm-dd" class="form-control"/>
-                    </div>
+                    </div>*@
+@*                     <div class="form-group">
+                          <label>Fecha</label>
+                <div class='input-group date' id='datetimepicker1'>
+                   
+                    <input type='text' class="form-control" id="txtFecha"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>*@
+  @*              <div id="datepicker" class="input-group date" data-provide="datepicker">
+                  <input type="text" class="form-control" >
+                  <div class="input-group-addon">
+                 <span class="glyphicon glyphicon-th"  ></span>
+    </div>
+    </div>*@
+    <div><input type="date" id="start" name="trip-start" class="form-control" data-date-format="YYYY-MM-DD" >
+
+@*    <div id="datepicker" class="input-group date" data-provide="datepicker">
+        <input type="text" class="form-control" id ="txt">
+                  <div class="input-group-addon">
+                 <span class="glyphicon glyphicon-th"  ></span>
+    </div>*@
+</div>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-success btnModifica" data-dismiss="modal" onclick="Modificar()">Modificar</button>
@@ -86,7 +110,8 @@
                     </div>
                     <div class="form-group">
                     <label>Fecha</label>
-                        <input  type = "text" id="txtFechaA" placeholder="yyyy-mm-dd" class="form-control"/>
+                        @*<input  type = "text" id="txtFechaA" placeholder="yyyy-mm-dd" class="form-control"/>*@
+                        <input type="date" id="txtFechaA" name="trip-start" class="form-control" data-date-format="YYYY-MM-DD" >
                     </div>
       </div>
       <div class="modal-footer justify-content-between">
@@ -118,4 +143,36 @@
 </div>
 @section Scripts{
     <script src= "~/js/Autos.js"></script>
+     <script >
+    //$('#sandbox-container input').datepicker({
+    //    format: "yyyy/mm/dd",
+    //    language: "es"
+    //});
+    //$(document).ready(function (){
+    //format: "yyyy-mm-dd",
+    //language: "es"
+    //});
+    //    $('#sandbox-container input').datepicker({
+    //    format: "yyyy/mm/dd",
+    //    language: "es"
+    //});
+//    $(".input-group date").datepicker({
+//    changeMonth: true,
+//    changeYear: true,
+//    dateFormat: 'dd/mm/yy', //Se especifica como deseamos representarla
+//    firstDay: 1
+//});
+   //$(document).ready(function () {
+   //             $('#datepicker').datetimepicker();
+   //     format: "yyyy/mm/dd",
+   //     language: "es"
+   //         });
+     //$(function () {
+     //           $('#datepicker').datepicker();
+     //                format: "yyyy-mm-dd",
+     //                //language: "es"
+     //       });
+     //       }
+        </script>
+
 }

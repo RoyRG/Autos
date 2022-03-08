@@ -68,7 +68,7 @@ namespace API.Negocios.Negocios
             rCarro.Id_Lote = entidad.Id_Lote;
             rCarro.Id_Modelo = entidad.Id_Modelo;
             rCarro.Año = entidad.Año;
-            rCarro.Fecha_Actualizacion = entidad.Fecha_Actualizacion;
+            rCarro.Fecha_Actualizacion = DateTime.Now;
             _db.Update(rCarro);
             _db.SaveChanges();
         }

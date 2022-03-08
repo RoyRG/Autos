@@ -1,6 +1,7 @@
 C:\Users\QUALITY\Desktop\Autos\API.Comun\bin\Debug\netcoreapp3.1\API.Comun.deps.json
 C:\Users\QUALITY\Desktop\Autos\API.Comun\bin\Debug\netcoreapp3.1\API.Comun.dll
 C:\Users\QUALITY\Desktop\Autos\API.Comun\bin\Debug\netcoreapp3.1\API.Comun.pdb
+C:\Users\QUALITY\Desktop\Autos\API.Comun\obj\Debug\netcoreapp3.1\API.Comun.csproj.AssemblyReference.cache
 C:\Users\QUALITY\Desktop\Autos\API.Comun\obj\Debug\netcoreapp3.1\API.Comun.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\QUALITY\Desktop\Autos\API.Comun\obj\Debug\netcoreapp3.1\API.Comun.AssemblyInfoInputs.cache
 C:\Users\QUALITY\Desktop\Autos\API.Comun\obj\Debug\netcoreapp3.1\API.Comun.AssemblyInfo.cs
